@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Home</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container text-center">
+			<h1>TOKO ELEKTRONIK</h1>
+		</div>
+		
+		<div class ="text-center border rounded m3 ">
+		<div align="left">
+			<h3><a th:href="@{'/new'}">Tambah Data</a></h3>
+		</div>
+			<table class ="table table-striped table-bordered">
+				<thead class ="thead-dark">
+					<tr>
+						<th>Produk ID</th>
+						<th>Merk</th>
+						<th>Jenis</th>
+						<th>Harga</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="toko:${listToko}">
+						<td th:text="${toko.id}">Produk ID</td>
+						<td th:text="${toko.merk}">Merk</td>
+						<td th:text="${toko.jenis}">Jenis</td>
+						<td th:text="${toko.harga}">Harga</td>
+						<td><a th:href="@{'/edit/'+${toko.id}}">Edit</a></td>
+						<td><a th:href="@{'/delete/'+${toko.id}}">Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+
+</html>
